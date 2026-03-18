@@ -513,13 +513,13 @@ body.light-theme .theme-icon-dark { display: block; }
 .card-image-automation { background: url('images/Automation.jpg') center center / cover no-repeat !important; }
 .card-image-fueling { background: url('images/Fuelling.jpeg') center center / cover no-repeat !important; }
 .card-image-h2 { background: linear-gradient(135deg, #0a1028, #16213e) !important; }
-.card-image-irve { background: linear-gradient(135deg, #0a1a1a, #162e2e) !important; }
+.card-image-irve { background: url('images/Gamme Pulse 2026.png') center center / cover no-repeat !important; }
 
 body.light-theme .card-image-energies { background: url('images/ALT-NRJ-2-1024x270.jpg') center center / cover no-repeat !important; }
 body.light-theme .card-image-automation { background: url('images/Automation.jpg') center center / cover no-repeat !important; }
 body.light-theme .card-image-fueling { background: url('images/Fuelling.jpeg') center center / cover no-repeat !important; }
 body.light-theme .card-image-h2 { background: linear-gradient(135deg, #e0e8f5, #c5d5e8) !important; }
-body.light-theme .card-image-irve { background: linear-gradient(135deg, #e0f5f3, #c5e8e4) !important; }
+body.light-theme .card-image-irve { background: url('images/Gamme Pulse 2026.png') center center / cover no-repeat !important; }
 
 .card-image::before {
     content: attr(data-label);
@@ -689,6 +689,7 @@ body.light-theme .card-icon-item {
 .hero-image-energies { background: url('images/ALT-NRJ-2-1024x270.jpg') center center / cover no-repeat !important; }
 .hero-image-automation { background: url('images/Automation.jpg') center center / cover no-repeat !important; }
 .hero-image-fueling { background: url('images/Fuelling.jpeg') center center / cover no-repeat !important; }
+.hero-image-irve { background: url('images/Station Pulse 100-400 parking auvent hexagone MADIC group.png') center center / cover no-repeat !important; }
 
 .hero-image::before {
     content: attr(data-label);
@@ -911,6 +912,11 @@ body.light-theme .carousel-card:active {
     padding: 0 16px;
 }
 
+/* Masquer le label texte quand une image détourée est présente */
+.carousel-card-image[class*="irve-img-pulse"]::before {
+    display: none;
+}
+
 .carousel-tag {
     position: absolute;
     top: 12px;
@@ -1004,11 +1010,32 @@ body.light-theme .carousel-card:active {
 
 .irve-img {
     background: linear-gradient(135deg, #0a1a1a, #162e2e) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 body.light-theme .irve-img {
     background: linear-gradient(135deg, #e0f5f3, #c5e8e4) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
 }
+
+/* Images bornes détourées — image (transparent PNG) devant, dégradé derrière */
+.irve-img-pulse-wb { background: url('images/Pulse WB-AC - MADIC group.png') center / contain no-repeat, linear-gradient(135deg, #0a1a1a, #162e2e) !important; }
+.irve-img-pulse-22-gl { background: url('images/22 GL avec cable_new.png') center / contain no-repeat, linear-gradient(135deg, #0a1a1a, #162e2e) !important; }
+.irve-img-pulse-22-wl { background: url('images/Image Pulse 22 WL - MADIC group2.png') center / contain no-repeat, linear-gradient(135deg, #0a1a1a, #162e2e) !important; }
+.irve-img-pulse-25 { background: url('images/Pulse25 (RAL blanc).png') center / contain no-repeat, linear-gradient(135deg, #0a1a1a, #162e2e) !important; }
+.irve-img-pulse-100-400 { background: url('images/Pulse 100-400 MADIC group.png') center / contain no-repeat, linear-gradient(135deg, #0a1a1a, #162e2e) !important; }
+.irve-img-pulse-sat { background: url('images/SAT 350 2.png') center / contain no-repeat, linear-gradient(135deg, #0a1a1a, #162e2e) !important; }
+
+body.light-theme .irve-img-pulse-wb { background: url('images/Pulse WB-AC - MADIC group.png') center / contain no-repeat, linear-gradient(135deg, #e0f5f3, #c5e8e4) !important; }
+body.light-theme .irve-img-pulse-22-gl { background: url('images/22 GL avec cable_new.png') center / contain no-repeat, linear-gradient(135deg, #e0f5f3, #c5e8e4) !important; }
+body.light-theme .irve-img-pulse-22-wl { background: url('images/Image Pulse 22 WL - MADIC group2.png') center / contain no-repeat, linear-gradient(135deg, #e0f5f3, #c5e8e4) !important; }
+body.light-theme .irve-img-pulse-25 { background: url('images/Pulse25 (RAL blanc).png') center / contain no-repeat, linear-gradient(135deg, #e0f5f3, #c5e8e4) !important; }
+body.light-theme .irve-img-pulse-100-400 { background: url('images/Pulse 100-400 MADIC group.png') center / contain no-repeat, linear-gradient(135deg, #e0f5f3, #c5e8e4) !important; }
+body.light-theme .irve-img-pulse-sat { background: url('images/SAT 350 2.png') center / contain no-repeat, linear-gradient(135deg, #e0f5f3, #c5e8e4) !important; }
 
 .fuel-img {
     background: linear-gradient(135deg, #1a1408, #2e2010) !important;
