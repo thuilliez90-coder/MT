@@ -848,34 +848,36 @@ body.light-theme .hero-overlay-orange {
    ═══════════════════════════════════════════ */
 .carousel-container {
     position: relative;
-    padding: 0 50px 40px;
+    padding: 0 0 40px;
 }
 
 .carousel-track {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     scrollbar-width: none;
-    padding: 10px 0;
+    padding: 20px 60px;
     scroll-behavior: smooth;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .carousel-card {
     flex: 0 0 280px;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     border-radius: 20px;
     overflow: hidden;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    will-change: transform, opacity;
 }
 
 .carousel-card:hover, .carousel-card:active {
-    transform: translateY(-4px);
     border-color: var(--border-strong);
     box-shadow: 0 16px 48px rgba(0,0,0,0.3);
 }
@@ -983,8 +985,8 @@ body.light-theme .carousel-card:active {
     color: #fff;
 }
 
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; }
+.carousel-prev { left: 4px; }
+.carousel-next { right: 4px; }
 
 /* IRVE power badge */
 .power-badge {
@@ -1419,8 +1421,7 @@ body.light-theme .h2-img {
    ANIMATIONS ON ENTER
    ═══════════════════════════════════════════ */
 .screen.active .menu-card,
-.screen.active .detail-card,
-.screen.active .carousel-card {
+.screen.active .detail-card {
     animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
@@ -1430,15 +1431,6 @@ body.light-theme .h2-img {
 .screen.active .menu-card:nth-child(4) { animation-delay: 0.2s; }
 .screen.active .menu-card:nth-child(5) { animation-delay: 0.25s; }
 
-.screen.active .carousel-card:nth-child(1) { animation-delay: 0.05s; }
-.screen.active .carousel-card:nth-child(2) { animation-delay: 0.08s; }
-.screen.active .carousel-card:nth-child(3) { animation-delay: 0.11s; }
-.screen.active .carousel-card:nth-child(4) { animation-delay: 0.14s; }
-.screen.active .carousel-card:nth-child(5) { animation-delay: 0.17s; }
-.screen.active .carousel-card:nth-child(6) { animation-delay: 0.20s; }
-.screen.active .carousel-card:nth-child(7) { animation-delay: 0.23s; }
-.screen.active .carousel-card:nth-child(8) { animation-delay: 0.26s; }
-.screen.active .carousel-card:nth-child(n+9) { animation-delay: 0.3s; }
 
 @keyframes fadeInUp {
     from {

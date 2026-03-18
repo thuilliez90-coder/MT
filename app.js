@@ -68,27 +68,91 @@ function carouselPrev(carouselId) {
     resetInactivityTimer();
 }
 
-// Enable touch swipe on carousels
-document.querySelectorAll('.carousel-track').forEach(track => {
-    let startX = 0;
-    let scrollLeft = 0;
-    let isDown = false;
+// ── CAROUSEL CYLINDER EFFECT ──
+// Applies subtle scale + opacity based on card distance from center
+function updateCarouselCylinder(track) {
+    const cards = track.querySelectorAll('.carousel-card');
+    const trackRect = track.getBoundingClientRect();
+    const trackCenter = trackRect.left + trackRect.width / 2;
 
-    track.addEventListener('touchstart', (e) => {
-        isDown = true;
-        startX = e.touches[0].pageX - track.offsetLeft;
-        scrollLeft = track.scrollLeft;
-    }, { passive: true });
+    cards.forEach(card => {
+        if (card.classList.contains('hidden-card')) return;
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        // Distance from center, normalized 0..1
+        const dist = Math.abs(cardCenter - trackCenter) / (trackRect.width / 2);
+        const clampedDist = Math.min(dist, 1);
+        // Subtle scale: 1.0 at center, 0.92 at edge
+        const scale = 1 - clampedDist * 0.08;
+        // Subtle opacity: 1.0 at center, 0.5 at edge
+        const opacity = 1 - clampedDist * 0.5;
+        card.style.transform = `scale(${scale})`;
+        card.style.opacity = opacity;
+    });
+}
 
-    track.addEventListener('touchmove', (e) => {
-        if (!isDown) return;
-        const x = e.touches[0].pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        track.scrollLeft = scrollLeft - walk;
-    }, { passive: true });
+// Initialize cylinder effect on all carousel tracks
+function initCarouselEffects() {
+    document.querySelectorAll('.carousel-track').forEach(track => {
+        // Update on scroll
+        track.addEventListener('scroll', () => {
+            requestAnimationFrame(() => updateCarouselCylinder(track));
+        }, { passive: true });
 
-    track.addEventListener('touchend', () => { isDown = false; });
+        // Initial update
+        requestAnimationFrame(() => updateCarouselCylinder(track));
+
+        // Touch swipe with momentum
+        let startX = 0;
+        let startScrollLeft = 0;
+        let isDown = false;
+        let startTime = 0;
+        let lastX = 0;
+        let velocity = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            isDown = true;
+            track.style.scrollBehavior = 'auto';
+            startX = e.touches[0].pageX;
+            lastX = startX;
+            startScrollLeft = track.scrollLeft;
+            startTime = Date.now();
+            velocity = 0;
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX;
+            const dx = x - lastX;
+            velocity = dx;
+            lastX = x;
+            const walk = startX - x;
+            track.scrollLeft = startScrollLeft + walk;
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+            if (!isDown) return;
+            isDown = false;
+            track.style.scrollBehavior = 'smooth';
+            // Apply momentum: fling based on velocity
+            const momentum = -velocity * 8;
+            if (Math.abs(momentum) > 20) {
+                track.scrollBy({ left: momentum, behavior: 'smooth' });
+            }
+            resetInactivityTimer();
+        });
+    });
+}
+
+// Re-run cylinder effect when a screen becomes active (cards may have changed)
+const carouselObserver = new MutationObserver(() => {
+    document.querySelectorAll('.screen.active .carousel-track').forEach(track => {
+        requestAnimationFrame(() => updateCarouselCylinder(track));
+    });
 });
+carouselObserver.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+
+document.addEventListener('DOMContentLoaded', initCarouselEffects);
 
 // ── FILTER CARDS (Automation) ──
 function filterAutomation(category, btn) {
