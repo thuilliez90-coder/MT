@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>MADIC — Écran Tactile Salon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ÉCRAN D'ACCUEIL                             -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-home" class="screen active">
+        <div class="home-bg">
+            <div class="home-overlay"></div>
+            <!-- Placeholder: remplacer par la hero image de la couverture (station futuriste avec voiture) -->
+            <div class="home-bg-image" data-label="Image couverture — Station futuriste avec éclairage rouge"></div>
+        </div>
+        <div class="home-content">
+            <div class="home-logo">
+                <!-- Logo MADIC : hexagone gris + texte rouge -->
+                <svg class="logo-icon" viewBox="0 0 60 52" fill="none">
+                    <path d="M30 2L55 15v22L30 50 5 37V15z" fill="#8a8d8f" opacity="0.9"/>
+                    <path d="M30 8L48 18v16L30 44 12 34V18z" fill="#6d7073"/>
+                    <path d="M25 22l5-6 5 6v8l-5 6-5-6z" fill="#fff" opacity="0.5"/>
+                </svg>
+                <span class="logo-text">MADIC</span>
+            </div>
+            <div class="home-tagline">CONCEVONS L'AVENIR</div>
+            <h1 class="home-title">Leader français des équipements<br>et services de distribution<br><span class="accent">multi-énergies</span></h1>
+            <p class="home-subtitle">Construction · Station-service · IRVE · Hydrogène · Nano Station</p>
+            <div class="home-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="650">0</span>
+                    <span class="stat-label">collaborateurs</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="10000">0</span>
+                    <span class="stat-label">stations maintenues</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="13">0</span>
+                    <span class="stat-label">sites en France</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="450">0</span>
+                    <span class="stat-label">techniciens</span>
+                </div>
+            </div>
+            <button class="cta-main" onclick="navigateTo('screen-menu')">
+                <span>Explorer nos solutions</span>
+                <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+        <div class="home-bottom-bar">
+            <span class="bottom-text">Touchez l'écran pour découvrir nos savoir-faire</span>
+            <div class="pulse-dot"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- MENU PRINCIPAL                              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-menu" class="screen">
+        <header class="top-bar">
+            <div class="top-bar-logo" onclick="navigateTo('screen-home')">
+                <svg class="logo-icon-sm" viewBox="0 0 60 52" fill="none">
+                    <path d="M30 2L55 15v22L30 50 5 37V15z" fill="#8a8d8f" opacity="0.9"/>
+                    <path d="M30 8L48 18v16L30 44 12 34V18z" fill="#6d7073"/>
+                </svg>
+                <span class="logo-text-sm">MADIC</span>
+            </div>
+            <h2 class="top-bar-title">Nos savoir-faire</h2>
+            <button class="btn-home" onclick="navigateTo('screen-home')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-4 0v-6h4v6"/>
+                </svg>
+                <span>Accueil</span>
+            </button>
+        </header>
+
+        <div class="menu-intro">
+            <p>Des lieux au service des Hommes — Qualité et proximité sur tout le territoire français</p>
+        </div>
+
+        <div class="menu-grid">
+            <!-- CONSTRUCTION -->
+            <div class="menu-card" onclick="navigateTo('screen-construction')" style="--card-accent: #e63946">
+                <div class="card-image" data-label="Image Construction — Chantier terrassement avec engin et cuves">
+                    <div class="card-image-overlay"></div>
+                    <div class="card-badge">Construction</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Construction</h3>
+                    <p class="card-desc">Études · Constructions neuves · Rénovations</p>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </div>
+
+            <!-- STATION-SERVICE -->
+            <div class="menu-card card-featured" onclick="navigateTo('screen-station')" style="--card-accent: #e63946">
+                <div class="card-image" data-label="Image Station-service — Vue station multi-énergies avec auvent">
+                    <div class="card-image-overlay"></div>
+                    <div class="card-badge">Station-service</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Station-service</h3>
+                    <p class="card-desc">Multi-énergies · Multi-paiements · Multi-connectés</p>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </div>
+
+            <!-- IRVE -->
+            <div class="menu-card" onclick="navigateTo('screen-irve')" style="--card-accent: #4ecdc4">
+                <div class="card-image" data-label="Image IRVE — Bornes de recharge avec panneaux photovoltaïques">
+                    <div class="card-image-overlay"></div>
+                    <div class="card-badge" style="background: #4ecdc4">IRVE</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">IRVE</h3>
+                    <p class="card-desc">Bornes AC/DC · 3 à 400 kW · Photovoltaïque</p>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </div>
+
+            <!-- H2 -->
+            <div class="menu-card" onclick="navigateTo('screen-h2')" style="--card-accent: #3a86ff">
+                <div class="card-image" data-label="Image H2 — Infrastructure hydrogène avec logo H2">
+                    <div class="card-image-overlay"></div>
+                    <div class="card-badge" style="background: #3a86ff">H2</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">H2</h3>
+                    <p class="card-desc">De &lt;40 kg/j à 2000+ kg/j · Tout véhicule</p>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </div>
+
+            <!-- NANO STATION -->
+            <div class="menu-card" onclick="navigateTo('screen-nano')" style="--card-accent: #ff6b35">
+                <div class="card-image" data-label="Image Nano Station — Produit Nano Station avec écran">
+                    <div class="card-image-overlay"></div>
+                    <div class="card-badge" style="background: #ff6b35">Nano Station</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Nano Station</h3>
+                    <p class="card-desc">Design · Plug & Play · Communicante</p>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-footer">
+            <div class="footer-badge"><span class="footer-icon">●</span> Proximité</div>
+            <div class="footer-badge"><span class="footer-icon">●</span> Qualité</div>
+            <div class="footer-badge"><span class="footer-icon">●</span> Innovation</div>
+            <div class="footer-badge"><span class="footer-icon">●</span> Développement durable</div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE CONSTRUCTION                           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-construction" class="screen">
+        <header class="top-bar">
+            <button class="btn-back" onclick="navigateTo('screen-menu')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Retour</span>
+            </button>
+            <h2 class="top-bar-title">Construction</h2>
+            <button class="btn-home" onclick="navigateTo('screen-home')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-4 0v-6h4v6"/></svg>
+                <span>Accueil</span>
+            </button>
+        </header>
+
+        <div class="page-hero" style="--hero-accent: #e63946">
+            <div class="hero-image" data-label="Hero Construction — Chantier terrassement, cuves enterrées, engins">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-text">
+                <div class="hero-label">CONSTRUCTION</div>
+                <h1>Construire la station<br>de <span class="accent">demain</span></h1>
+                <p class="hero-sub">De l'étude à la livraison, MADIC conçoit et réalise<br>vos projets de stations clé en main.</p>
+            </div>
+        </div>
+
+        <div class="detail-grid three-col">
+            <div class="detail-card" style="--detail-accent: #e63946">
+                <div class="detail-image" data-label="Études — Plans, conception technique">
+                    <div class="detail-number">01</div>
+                </div>
+                <h4>Études</h4>
+                <p>Conception, plans, permis, études techniques et réglementaires</p>
+            </div>
+            <div class="detail-card" style="--detail-accent: #e63946">
+                <div class="detail-image" data-label="Constructions neuves — Station neuve en construction">
+                    <div class="detail-number">02</div>
+                </div>
+                <h4>Constructions neuves</h4>
+                <p>Réalisation complète de stations-service, de la structure aux équipements</p>
+            </div>
+            <div class="detail-card" style="--detail-accent: #e63946">
+                <div class="detail-image" data-label="Rénovations — Modernisation de station existante">
+                    <div class="detail-number">03</div>
+                </div>
+                <h4>Rénovations</h4>
+                <p>Modernisation, mise aux normes et transformation de stations existantes</p>
+            </div>
+        </div>
+
+        <div class="page-kpi-bar" style="--kpi-accent: #e63946">
+            <div class="kpi"><span class="kpi-value">Clé en main</span><span class="kpi-label">de A à Z</span></div>
+            <div class="kpi-sep"></div>
+            <div class="kpi"><span class="kpi-value">France entière</span><span class="kpi-label">13 sites</span></div>
+            <div class="kpi-sep"></div>
+            <div class="kpi"><span class="kpi-value">Multi-énergies</span><span class="kpi-label">toutes configurations</span></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE STATION-SERVICE                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-station" class="screen">
+        <header class="top-bar">
+            <button class="btn-back" onclick="navigateTo('screen-menu')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Retour</span>
+            </button>
+            <h2 class="top-bar-title">Station-service</h2>
+            <button class="btn-home" onclick="navigateTo('screen-home')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-4 0v-6h4v6"/></svg>
+                <span>Accueil</span>
+            </button>
+        </header>
+
+        <div class="page-hero compact" style="--hero-accent: #e63946">
+            <div class="hero-image" data-label="Hero Station — Vue d'ensemble station multi-énergies avec auvent et véhicules">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-text">
+                <div class="hero-label">STATION-SERVICE</div>
+                <h1>L'univers <span class="accent">Station</span></h1>
+                <p class="hero-sub">Multi-énergies · Multi-paiements · Multi-connectés</p>
+            </div>
+        </div>
+
+        <!-- Sous-navigation filtrable -->
+        <div class="sub-nav">
+            <button class="sub-nav-btn active" data-filter="all" onclick="filterCards('all', this)">Tout voir</button>
+            <button class="sub-nav-btn" data-filter="pompes" onclick="filterCards('pompes', this)">Pompes & Équipements</button>
+            <button class="sub-nav-btn" data-filter="paiement" onclick="filterCards('paiement', this)">Automates de paiement</button>
+            <button class="sub-nav-btn" data-filter="gestion" onclick="filterCards('gestion', this)">Systèmes de gestion</button>
+            <button class="sub-nav-btn" data-filter="bornes" onclick="filterCards('bornes', this)">Bornes privatives</button>
+        </div>
+
+        <div class="carousel-container" id="station-carousel">
+            <button class="carousel-arrow carousel-prev" onclick="carouselPrev('station-carousel')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="carousel-track">
+                <!-- Pompes & Équipements -->
+                <div class="carousel-card" data-category="pompes">
+                    <div class="carousel-card-image" data-label="Distributeur carburant multi-produits">
+                        <div class="carousel-tag">Pompes</div>
+                    </div>
+                    <h4>Distributeurs</h4>
+                    <p>Gamme complète de distributeurs multi-produits, toutes énergies</p>
+                </div>
+                <div class="carousel-card" data-category="pompes">
+                    <div class="carousel-card-image" data-label="Équipements GPL / GNV en station">
+                        <div class="carousel-tag">Pompes</div>
+                    </div>
+                    <h4>GPL / GNV</h4>
+                    <p>Équipements gaz pour stations multi-énergies</p>
+                </div>
+
+                <!-- Automates de paiement -->
+                <div class="carousel-card" data-category="paiement">
+                    <div class="carousel-card-image" data-label="Automate de paiement outdoor — haute protection, sécurité renforcée">
+                        <div class="carousel-tag">Paiement</div>
+                    </div>
+                    <h4>Automates outdoor</h4>
+                    <p>Haute protection · Sécurité renforcée · Confort d'utilisation · 24/7</p>
+                </div>
+                <div class="carousel-card" data-category="paiement">
+                    <div class="carousel-card-image" data-label="Automate de paiement indoor — terminal boutique">
+                        <div class="carousel-tag">Paiement</div>
+                    </div>
+                    <h4>Automates indoor</h4>
+                    <p>Solutions de paiement intégrées en boutique, CB, badges, QR</p>
+                </div>
+
+                <!-- Systèmes de gestion -->
+                <div class="carousel-card" data-category="gestion">
+                    <div class="carousel-card-image" data-label="Système de gestion — écran supervision, hypervision">
+                        <div class="carousel-tag">Gestion</div>
+                    </div>
+                    <h4>Systèmes de gestion</h4>
+                    <p>Mono ou multi-sites · Hypervision · Interaction à distance</p>
+                </div>
+
+                <!-- Bornes privatives -->
+                <div class="carousel-card" data-category="bornes">
+                    <div class="carousel-card-image" data-label="Borne privative — Terminal de contrôle des consommations">
+                        <div class="carousel-tag">Bornes</div>
+                    </div>
+                    <h4>Bornes privatives</h4>
+                    <p>Terminal de contrôle des consommations · Flottes · Dépôts · Sites privés</p>
+                </div>
+            </div>
+            <button class="carousel-arrow carousel-next" onclick="carouselNext('station-carousel')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE IRVE                                   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-irve" class="screen">
+        <header class="top-bar">
+            <button class="btn-back" onclick="navigateTo('screen-menu')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Retour</span>
+            </button>
+            <h2 class="top-bar-title">IRVE</h2>
+            <button class="btn-home" onclick="navigateTo('screen-home')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-4 0v-6h4v6"/></svg>
+                <span>Accueil</span>
+            </button>
+        </header>
+
+        <div class="page-hero compact" style="--hero-accent: #4ecdc4">
+            <div class="hero-image" data-label="Hero IRVE — Infrastructure de recharge avec panneaux solaires et bornes">
+                <div class="hero-overlay hero-overlay-teal"></div>
+            </div>
+            <div class="hero-text">
+                <div class="hero-label" style="color: #4ecdc4">IRVE</div>
+                <h1>Recharge <span class="accent-teal">électrique</span></h1>
+                <p class="hero-sub">Bornes AC/DC · De 3 à 400 kW · Panneaux photovoltaïques</p>
+            </div>
+        </div>
+
+        <div class="carousel-container" id="irve-carousel">
+            <button class="carousel-arrow carousel-prev" onclick="carouselPrev('irve-carousel')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="carousel-track">
+                <div class="carousel-card irve-card">
+                    <div class="carousel-card-image irve-img" data-label="Borne AC 7-22 kW — parking, voirie">
+                        <div class="power-badge" style="background: #4ecdc4">7-22 kW</div>
+                    </div>
+                    <h4>Borne AC</h4>
+                    <p>Recharge normale · Parkings · Voirie · Copropriétés</p>
+                    <span class="card-tag" style="background: rgba(78,205,196,0.15); color: #4ecdc4">Recharge lente</span>
+                </div>
+                <div class="carousel-card irve-card">
+                    <div class="carousel-card-image irve-img" data-label="Borne DC 50 kW — station, flotte">
+                        <div class="power-badge" style="background: #4ecdc4">50 kW</div>
+                    </div>
+                    <h4>Borne DC 50 kW</h4>
+                    <p>Recharge accélérée · Stations · Flottes professionnelles</p>
+                    <span class="card-tag" style="background: rgba(78,205,196,0.15); color: #4ecdc4">Recharge rapide</span>
+                </div>
+                <div class="carousel-card irve-card">
+                    <div class="carousel-card-image irve-img" data-label="Borne HPC 150-400 kW — autoroute, hub">
+                        <div class="power-badge" style="background: #4ecdc4">150-400 kW</div>
+                    </div>
+                    <h4>Borne HPC</h4>
+                    <p>Haute puissance · Autoroutes · Hubs de recharge</p>
+                    <span class="card-tag" style="background: rgba(78,205,196,0.15); color: #4ecdc4">Ultra-rapide</span>
+                </div>
+                <div class="carousel-card irve-card">
+                    <div class="carousel-card-image irve-img" data-label="Installation photovoltaïque — ombrière solaire avec bornes">
+                        <div class="power-badge" style="background: #4ecdc4">SOLAR</div>
+                    </div>
+                    <h4>Photovoltaïque</h4>
+                    <p>Ombrières solaires · Autoconsommation · Production locale</p>
+                    <span class="card-tag" style="background: rgba(78,205,196,0.15); color: #4ecdc4">Énergie verte</span>
+                </div>
+            </div>
+            <button class="carousel-arrow carousel-next" onclick="carouselNext('irve-carousel')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+        </div>
+
+        <div class="page-kpi-bar" style="--kpi-accent: #4ecdc4">
+            <div class="kpi"><span class="kpi-value">AC / DC</span><span class="kpi-label">toutes puissances</span></div>
+            <div class="kpi-sep"></div>
+            <div class="kpi"><span class="kpi-value">3 à 400 kW</span><span class="kpi-label">gamme complète</span></div>
+            <div class="kpi-sep"></div>
+            <div class="kpi"><span class="kpi-value">Clé en main</span><span class="kpi-label">installation & SAV</span></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE H2                                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-h2" class="screen">
+        <header class="top-bar">
+            <button class="btn-back" onclick="navigateTo('screen-menu')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Retour</span>
+            </button>
+            <h2 class="top-bar-title">H2 — Hydrogène</h2>
+            <button class="btn-home" onclick="navigateTo('screen-home')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-4 0v-6h4v6"/></svg>
+                <span>Accueil</span>
+            </button>
+        </header>
+
+        <div class="h2-layout">
+            <div class="h2-visual-side">
+                <div class="h2-hero-image" data-label="Grande image H2 — Infrastructure hydrogène, station H2 en situation">
+                    <div class="h2-overlay"></div>
+                    <div class="h2-big-label">
+                        <span class="h2-symbol">H<sub>2</sub></span>
+                    </div>
+                </div>
+            </div>
+            <div class="h2-info-side">
+                <div class="hero-label" style="color: #3a86ff">HYDROGÈNE</div>
+                <h1 class="h2-title">L'énergie<br><span class="accent-blue">Hydrogène</span></h1>
+                <p class="h2-desc">MADIC accompagne le déploiement des infrastructures hydrogène pour tout type de source et tout type de véhicules.</p>
+
+                <div class="h2-features">
+                    <div class="h2-feat">
+                        <div class="h2-feat-icon" style="background: rgba(58,134,255,0.1)">
+                            <svg viewBox="0 0 32 32" fill="none" stroke="#3a86ff" stroke-width="1.5">
+                                <circle cx="16" cy="16" r="12"/>
+                                <text x="16" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="#3a86ff" stroke="none">H₂</text>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Tout type de source H2</strong>
+                            <p>Électrolyse, reformage, approvisionnement</p>
+                        </div>
+                    </div>
+                    <div class="h2-feat">
+                        <div class="h2-feat-icon" style="background: rgba(58,134,255,0.1)">
+                            <svg viewBox="0 0 32 32" fill="none" stroke="#3a86ff" stroke-width="1.5">
+                                <path d="M4 24l6-12 6 8 6-14 6 18"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>De &lt;40 kg/j à 2000+ kg/j</strong>
+                            <p>Capacités adaptées à chaque projet</p>
+                        </div>
+                    </div>
+                    <div class="h2-feat">
+                        <div class="h2-feat-icon" style="background: rgba(58,134,255,0.1)">
+                            <svg viewBox="0 0 32 32" fill="none" stroke="#3a86ff" stroke-width="1.5">
+                                <rect x="4" y="14" width="10" height="14" rx="2"/>
+                                <rect x="18" y="8" width="10" height="20" rx="2"/>
+                                <circle cx="9" cy="24" r="2"/>
+                                <circle cx="23" cy="24" r="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Pour tout type de véhicules</strong>
+                            <p>Véhicules légers, bus, poids lourds, utilitaires</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE NANO STATION                           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-nano" class="screen">
+        <header class="top-bar">
+            <button class="btn-back" onclick="navigateTo('screen-menu')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Retour</span>
+            </button>
+            <h2 class="top-bar-title">Nano Station</h2>
+            <button class="btn-home" onclick="navigateTo('screen-home')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-4 0v-6h4v6"/></svg>
+                <span>Accueil</span>
+            </button>
+        </header>
+
+        <div class="nano-layout">
+            <div class="nano-visual">
+                <div class="nano-product-image" data-label="Grande image Nano Station — Produit détouré avec écran d'affichage, design compact">
+                    <div class="nano-glow"></div>
+                </div>
+            </div>
+            <div class="nano-info">
+                <div class="hero-label" style="color: #ff6b35">NANO STATION</div>
+                <h1 class="nano-title">Nano<br><span class="accent-orange">Station</span></h1>
+                <p class="nano-desc">La station compacte, connectée et autonome.<br>Déployez un point de distribution en un temps record.</p>
+                <div class="nano-features">
+                    <div class="nano-feat">
+                        <div class="nano-feat-dot" style="background: #ff6b35"></div>
+                        <div>
+                            <strong>Design</strong>
+                            <p>Esthétique soignée, intégration paysagère optimale</p>
+                        </div>
+                    </div>
+                    <div class="nano-feat">
+                        <div class="nano-feat-dot" style="background: #ff6b35"></div>
+                        <div>
+                            <strong>Plug & Play</strong>
+                            <p>Installation rapide, mise en service simplifiée</p>
+                        </div>
+                    </div>
+                    <div class="nano-feat">
+                        <div class="nano-feat-dot" style="background: #ff6b35"></div>
+                        <div>
+                            <strong>Communicante</strong>
+                            <p>Connectée, supervisée, télégérée à distance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREENSAVER / INACTIVITÉ -->
+    <div id="screensaver" class="screensaver hidden">
+        <div class="screensaver-content">
+            <svg class="screensaver-logo" viewBox="0 0 60 52" fill="none">
+                <path d="M30 2L55 15v22L30 50 5 37V15z" fill="#8a8d8f" opacity="0.9"/>
+                <path d="M30 8L48 18v16L30 44 12 34V18z" fill="#6d7073"/>
+            </svg>
+            <span class="screensaver-text">MADIC</span>
+            <p class="screensaver-sub">Touchez l'écran pour découvrir nos solutions</p>
+            <div class="screensaver-pulse"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
